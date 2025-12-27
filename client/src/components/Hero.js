@@ -24,10 +24,16 @@ const Hero = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 justify-center items-center">
           <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary w-full sm:w-auto"
           >
-            Get Started
+            Our Services
+          </button>
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto"
+          >
+            Get In Touch
           </button>
         </div>
       </div>
