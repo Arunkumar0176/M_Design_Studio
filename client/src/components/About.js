@@ -25,7 +25,7 @@ const About = () => {
       image: nandanImage
     },
     {
-      name: "Sales Executive",
+      name: "Puja Gupta",
       position: "Sales Executive",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
     }
@@ -82,18 +82,22 @@ const About = () => {
         </div>
 
         {/* Our Team Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Our Team</h3>
           <p className="text-gray-600 mb-8">Meet the professionals behind our success</p>
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-48 object-cover"
-                />
+                <div className="overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className={`w-full h-48 transition-transform duration-300 hover:scale-110 ${
+                      member.name === 'Dheeraj Kumar' || member.name === 'Puja Gupta' ? 'object-cover object-top' : 'object-cover'
+                    }`}
+                  />
+                </div>
                 <div className="p-4">
                   <h4 className="font-bold text-primary mb-1">{member.name}</h4>
                   <p className="text-accent text-sm font-medium">{member.position}</p>

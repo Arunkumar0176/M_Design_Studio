@@ -27,7 +27,7 @@ const AboutPage = () => {
       description: "Ensures seamless operations and project execution from planning to completion."
     },
     {
-      name: "Sales Executive",
+      name: "Puja Gupta",
       position: "Sales Executive",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
       description: "Building client relationships and driving business growth through exceptional service."
@@ -105,7 +105,9 @@ const AboutPage = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-64 object-cover"
+                  className={`w-full h-64 object-cover ${
+                    member.name === 'Dheeraj Kumar' || member.name === 'Puja Gupta' ? 'object-top' : 'object-center'
+                  }`}
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-primary mb-2">{member.name}</h3>
@@ -113,7 +115,7 @@ const AboutPage = () => {
                   <p className="text-gray-600 text-sm">{member.description}</p>
                 </div>
               </div>
-            ))}
+            ))}}
           </div>
         </div>
       </section>

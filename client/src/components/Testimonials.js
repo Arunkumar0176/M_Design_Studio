@@ -7,33 +7,49 @@ const Testimonials = () => {
     {
       id: 1,
       name: "Rajesh Sharma",
-      company: "Tech Solutions Pvt Ltd",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      text: "M Design Studio transformed our corporate event into an unforgettable experience. Their attention to detail and creative approach exceeded our expectations.",
+      company: "Sharma Industries Ltd",
+      image: "https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?q=80&w=2106&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      text: "M Design Studio ne hamare corporate event ko bilkul perfect banaya. Sunil ji aur unki team ka dedication aur creativity kamal ka hai. Hamari company ke saath kaam karke bahut khushi hui.",
       rating: 5
     },
     {
       id: 2,
-      name: "Priya Gupta",
-      company: "Wedding Client",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      text: "Our wedding was absolutely perfect thanks to Dheeraj and his team. Every detail was handled with care and professionalism. Highly recommended!",
+      name: "Priya Agarwal",
+      company: "Wedding Client, Delhi",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      text: "Hamari shadi ke liye M Design Studio se behtar koi nahi mil sakta tha. Dheeraj sir ne har detail ka khayal rakha. Decoration se lekar management tak sab kuch perfect tha. Highly recommend karte hain!",
       rating: 5
     },
     {
       id: 3,
-      name: "Amit Kumar",
-      company: "Exhibition Organizer",
+      name: "Vikram Singh",
+      company: "Trade Fair Organizer",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      text: "The exhibition stand designed by M Design Studio was the highlight of the trade show. We received numerous compliments and great business leads.",
+      text: "Exhibition mein hamara stall sabse attractive tha. M Design Studio ki team ne itna beautiful design banaya ki visitors khud-ba-khud attract ho rahe the. Business leads bhi bahut acche mile.",
       rating: 5
     },
     {
       id: 4,
-      name: "Sneha Patel",
-      company: "Brand Manager",
+      name: "Sneha Kapoor",
+      company: "Brand Manager, Mumbai",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      text: "Brand activation event ke liye M Design Studio choose karna best decision tha. Professional approach, creative ideas aur timely delivery - sab kuch perfect. Nandan ji ka coordination excellent tha.",
+      rating: 5
+    },
+    {
+      id: 5,
+      name: "Arjun Mehta",
+      company: "Corporate Client, Gurgaon",
+      image: "https://images.unsplash.com/photo-1616002851413-ebcc9611139d?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      text: "Company ke annual function ke liye M Design Studio se contact kiya tha. Unka work quality aur dedication dekhkar impressed ho gaye. Budget ke andar itna accha event organize kiya ki sab praise kar rahe the.",
+      rating: 5
+    },
+    {
+      id: 6,
+      name: "Kavita Joshi",
+      company: "Event Organizer, Noida",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      text: "Professional, creative, and reliable. M Design Studio delivered an amazing brand activation event that perfectly captured our company's vision.",
+      text: "M Design Studio team ke saath kaam karna bahut accha experience raha. Puja ji ka sales support aur team ka execution dono hi outstanding hai. Future mein bhi inke saath kaam karna chahenge.",
       rating: 5
     }
   ];
@@ -108,8 +124,8 @@ const Testimonials = () => {
         </div>
 
         {/* Testimonial Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((testimonial, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.slice(0, 6).map((testimonial, index) => (
             <div
               key={testimonial.id}
               className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border-2 ${
