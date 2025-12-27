@@ -1,45 +1,121 @@
 import React, { useState } from 'react';
 
+// Import gallery images
+import corporate1 from '../assets/images/gallery/corportate-1.jpeg';
+import exhibition1 from '../assets/images/gallery/exhibition-1.jpeg';
+import exhibition2 from '../assets/images/gallery/Exibition-2.jpeg';
+import exhibition3 from '../assets/images/gallery/exibition-3.jpeg';
+import exhibition4 from '../assets/images/gallery/exibition-4.jpeg';
+import exhibition5 from '../assets/images/gallery/exibition-5.jpeg';
+import exhibition6 from '../assets/images/gallery/Exhibition-6.jpeg';
+import branding1 from '../assets/images/gallery/Branding-1.jpeg';
+import branding2 from '../assets/images/gallery/Branding-2.jpeg';
+import branding3 from '../assets/images/gallery/Branding-3.jpeg';
+import branding4 from '../assets/images/gallery/Branding-4.jpeg';
+import branding5 from '../assets/images/gallery/Branding-5.jpeg';
+import branding6 from '../assets/images/gallery/Branding-6.jpeg';
+
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [
+    // Corporate Events
     {
       _id: '1',
       title: 'Corporate Event',
-      image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: corporate1,
       category: 'corporate'
     },
+    
+    // Exhibition Images
     {
       _id: '2',
+      title: 'Exhibition Stand',
+      image: exhibition1,
+      category: 'exhibition'
+    },
+    {
+      _id: '3',
+      title: 'Exhibition Display',
+      image: exhibition2,
+      category: 'exhibition'
+    },
+    {
+      _id: '4',
+      title: 'Exhibition Setup',
+      image: exhibition3,
+      category: 'exhibition'
+    },
+    {
+      _id: '5',
+      title: 'Exhibition Design',
+      image: exhibition4,
+      category: 'exhibition'
+    },
+    {
+      _id: '6',
+      title: 'Exhibition Layout',
+      image: exhibition5,
+      category: 'exhibition'
+    },
+    {
+      _id: '7',
+      title: 'Exhibition Hall',
+      image: exhibition6,
+      category: 'exhibition'
+    },
+    
+    // Branding Images
+    {
+      _id: '8',
+      title: 'Brand Activation',
+      image: branding1,
+      category: 'branding'
+    },
+    {
+      _id: '9',
+      title: 'Brand Experience',
+      image: branding2,
+      category: 'branding'
+    },
+    {
+      _id: '10',
+      title: 'Brand Campaign',
+      image: branding3,
+      category: 'branding'
+    },
+    {
+      _id: '11',
+      title: 'Brand Launch',
+      image: branding4,
+      category: 'branding'
+    },
+    {
+      _id: '12',
+      title: 'Brand Promotion',
+      image: branding5,
+      category: 'branding'
+    },
+    {
+      _id: '13',
+      title: 'Brand Event',
+      image: branding6,
+      category: 'branding'
+    },
+    
+    // Placeholder for other categories
+    {
+      _id: '14',
       title: 'Wedding Ceremony',
       image: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       category: 'wedding'
     },
     {
-      _id: '3',
-      title: 'Exhibition Stand',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      category: 'exhibition'
-    },
-    {
-      _id: '4',
+      _id: '15',
       title: 'Trade Show',
       image: 'https://images.unsplash.com/photo-1559223607-b4d0555ae227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       category: 'tradeshow'
-    },
-    {
-      _id: '5',
-      title: 'Brand Activation',
-      image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      category: 'branding'
-    },
-    {
-      _id: '6',
-      title: 'Conference Setup',
-      image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      category: 'corporate'
     }
   ];
 

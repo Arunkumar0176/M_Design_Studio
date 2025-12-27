@@ -5,10 +5,16 @@ const router = express.Router();
 // Submit contact form
 router.post('/', async (req, res) => {
   try {
+    // Save to MongoDB
     const contact = new Contact(req.body);
     await contact.save();
-    res.json({ message: 'Contact form submitted successfully' });
+    
+    res.json({ 
+      message: 'Contact form submitted successfully',
+      contactId: contact._id 
+    });
   } catch (error) {
+    console.error('Error saving contact:', error);
     res.status(500).json({ error: error.message });
   }
 });
