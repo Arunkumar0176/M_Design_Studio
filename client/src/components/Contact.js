@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sendContactEmail } from '../services/emailjs';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,26 +24,42 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      // Submit to contact route (saves to MongoDB and sends email)
-      const response = await fetch('http://localhost:5003/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Contact submitted:', data);
+      console.log('📧 Submitting contact form...');
+      console.log('Form data:', formData);
+      
+      // Try EmailJS first
+      const emailResult = await sendContactEmail(formData);
+      
+      if (emailResult.success) {
+        console.log('✅ SUCCESS: Email sent via EmailJS!');
+        
+        // Also try database save as backup
+        try {
+          const response = await fetch('http://localhost:5003/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+          
+          if (response.ok) {
+            console.log('✅ Also saved to database');
+          }
+        } catch (dbError) {
+          console.log('⚠️ Database save failed, but email sent successfully');
+        }
+        
+        // Show success only when email actually sent
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
-        console.error('Server error');
+        console.error('❌ EMAILJS ERROR:', emailResult.error);
         setSubmitStatus('error');
       }
+      
     } catch (error) {
-      console.error('Network error:', error);
+      console.error('❌ FORM ERROR:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
