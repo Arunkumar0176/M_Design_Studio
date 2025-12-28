@@ -1,36 +1,50 @@
 import React from 'react';
 
+// Import service background images from gallery
+import eventPlanningBg from '../assets/images/gallery/corportate-1.jpeg';
+import exhibitionBg from '../assets/images/gallery/exhibition-1.jpeg';
+import corporateBg from '../assets/images/gallery/corporate-2.jpg';
+import weddingBg from '../assets/images/gallery/Branding-1.jpeg';
+import tradeShowBg from '../assets/images/gallery/Exhibition-6.jpeg';
+import brandActivationBg from '../assets/images/gallery/Branding-3.jpeg';
+
 const Services = () => {
   const services = [
     {
       title: 'Event Planning',
       description: 'Complete event management from concept to execution, ensuring every detail is perfect.',
-      icon: '🎯'
+      icon: '🎯',
+      bgImage: eventPlanningBg
     },
     {
       title: 'Exhibition Design',
       description: 'Creative and functional exhibition stands that capture attention and drive engagement.',
-      icon: '🎨'
+      icon: '🎨',
+      bgImage: exhibitionBg
     },
     {
       title: 'Corporate Events',
       description: 'Professional corporate event solutions including conferences, seminars, and product launches.',
-      icon: '🏢'
+      icon: '🏢',
+      bgImage: corporateBg
     },
     {
       title: 'Wedding Planning',
       description: 'Make your special day unforgettable with our comprehensive wedding planning services.',
-      icon: '💒'
+      icon: '💒',
+      bgImage: weddingBg
     },
     {
       title: 'Trade Shows',
       description: 'Strategic trade show planning and execution to maximize your business impact.',
-      icon: '🤝'
+      icon: '🤝',
+      bgImage: tradeShowBg
     },
     {
       title: 'Brand Activations',
       description: 'Innovative brand activation campaigns that create lasting connections with your audience.',
-      icon: '⚡'
+      icon: '⚡',
+      bgImage: brandActivationBg
     }
   ];
 
@@ -50,15 +64,27 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-white p-6 sm:p-8 rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 hover:-translate-y-2 border-l-4 border-accent"
+              className="group relative overflow-hidden rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 hover:-translate-y-2 border-l-4 border-accent"
+              style={{
+                backgroundImage: `url(${service.bgImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                minHeight: '300px'
+              }}
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold text-primary mb-4 group-hover:text-accent transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {service.description}
-              </p>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all duration-300"></div>
+              
+              {/* Content */}
+              <div className="relative z-10 p-6 sm:p-8 h-full flex flex-col justify-end text-white">
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-4 group-hover:text-accent transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-gray-200 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

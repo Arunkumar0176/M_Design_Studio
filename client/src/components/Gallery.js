@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 
 // Import gallery images
 import corporate1 from '../assets/images/gallery/corportate-1.jpeg';
+import corporate2 from '../assets/images/gallery/corporate-2.jpg';
+import corporate3 from '../assets/images/gallery/corporate-3.jpeg';
 import exhibition1 from '../assets/images/gallery/exhibition-1.jpeg';
 import exhibition2 from '../assets/images/gallery/Exibition-2.jpeg';
 import exhibition3 from '../assets/images/gallery/exibition-3.jpeg';
 import exhibition4 from '../assets/images/gallery/exibition-4.jpeg';
 import exhibition5 from '../assets/images/gallery/exibition-5.jpeg';
 import exhibition6 from '../assets/images/gallery/Exhibition-6.jpeg';
+import exhibition7 from '../assets/images/gallery/Exhibition-7.jpg';
+import exhibition8 from '../assets/images/gallery/Exhibition-8.jpg';
+import exhibition9 from '../assets/images/gallery/Exhibition-9.jpg';
+import exhibition10 from '../assets/images/gallery/Exhibition-10.jpeg';
+import exhibition11 from '../assets/images/gallery/Exhibition-11.jpeg';
 import branding1 from '../assets/images/gallery/Branding-1.jpeg';
 import branding2 from '../assets/images/gallery/Branding-2.jpeg';
 import branding3 from '../assets/images/gallery/Branding-3.jpeg';
@@ -25,6 +32,18 @@ const Gallery = () => {
       _id: '1',
       title: 'Corporate Event',
       image: corporate1,
+      category: 'corporate'
+    },
+    {
+      _id: '16',
+      title: 'Corporate Meeting',
+      image: corporate2,
+      category: 'corporate'
+    },
+    {
+      _id: '17',
+      title: 'Corporate Conference',
+      image: corporate3,
       category: 'corporate'
     },
     
@@ -63,6 +82,36 @@ const Gallery = () => {
       _id: '7',
       title: 'Exhibition Hall',
       image: exhibition6,
+      category: 'exhibition'
+    },
+    {
+      _id: '18',
+      title: 'Exhibition Booth',
+      image: exhibition7,
+      category: 'exhibition'
+    },
+    {
+      _id: '19',
+      title: 'Exhibition Center',
+      image: exhibition8,
+      category: 'exhibition'
+    },
+    {
+      _id: '20',
+      title: 'Exhibition Space',
+      image: exhibition9,
+      category: 'exhibition'
+    },
+    {
+      _id: '21',
+      title: 'Exhibition Gallery',
+      image: exhibition10,
+      category: 'exhibition'
+    },
+    {
+      _id: '22',
+      title: 'Exhibition Showcase',
+      image: exhibition11,
       category: 'exhibition'
     },
     

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/images/company_logo/logo.jpeg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,8 +13,9 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-serif font-bold text-white hover:text-accent transition-colors">
-              M DESIGN STUDIO
+            <Link to="/" className="flex items-center space-x-3 text-2xl font-serif font-bold text-white hover:text-accent transition-colors">
+              <img src={logo} alt="M Design Studio Logo" className="h-11 w-11 rounded-full object-cover" />
+              <span>M DESIGN STUDIO</span>
             </Link>
           </div>
 

@@ -21,7 +21,7 @@ const About = () => {
     },
     {
       name: "Nandan Prajatpati",
-      position: "Operator Manager",
+      position: "Operation Manager",
       image: nandanImage
     },
     {
@@ -78,6 +78,14 @@ const About = () => {
                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
+            {/* Customer Satisfaction Image */}
+            {/* <div className="absolute top-8 right-4">
+              <img
+                src="https://thefabulousconcept.com/wp-content/uploads/2025/08/images-7-Picsart-AiImageEnhancer-2.jpg"
+                alt="Customer Satisfaction"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg shadow-lg object-cover"
+              />
+            </div> */}
           </div>
         </div>
 

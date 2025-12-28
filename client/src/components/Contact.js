@@ -23,7 +23,8 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('http://localhost:5001/api/contact', {
+      // Submit to contact route (saves to MongoDB and sends email)
+      const response = await fetch('http://localhost:5003/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -31,13 +32,13 @@ const Contact = () => {
         body: JSON.stringify(formData)
       });
 
-      const data = await response.json();
-      
       if (response.ok) {
+        const data = await response.json();
+        console.log('Contact submitted:', data);
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
-        console.error('Server error:', data);
+        console.error('Server error');
         setSubmitStatus('error');
       }
     } catch (error) {
@@ -102,7 +103,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-primary mb-1">CEO & Founder</h4>
-                  <p className="text-gray-600">Dheeraj Kumar</p>
+                  <p className="text-gray-600">Sunil Kumar</p>
                 </div>
               </div>
             </div>
@@ -192,7 +193,7 @@ const Contact = () => {
 
               {submitStatus === 'success' && (
                 <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-800 text-sm">Message sent successfully! We'll contact you soon.</p>
+                  <p className="text-green-800 text-sm">✅ Message sent successfully! We'll contact you soon and you'll receive an email confirmation.</p>
                 </div>
               )}
 

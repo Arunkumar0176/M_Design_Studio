@@ -24,8 +24,10 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-2">
             <h3 className="text-2xl font-serif font-bold mb-4">M DESIGN STUDIO</h3>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Creating extraordinary events and exhibitions that leave lasting impressions. 
+              • Creating extraordinary events and exhibitions that leave lasting impressions. 
               We transform your vision into reality with our professional expertise and creative solutions.
+              <br/>
+              • Events Redefined
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-accent transition-colors">
@@ -101,8 +103,8 @@ const Footer = () => {
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:info@mdesignstudio.com" className="text-sm hover:text-accent transition-colors">
-                  dheerajsiet123@gmail.com
+                <a href="mailto:mdesignstudio.delhi" className="text-sm hover:text-accent transition-colors">
+                  mdesignstudio.delhi
                 </a>
               </div>
               <div className="flex items-center space-x-2">
