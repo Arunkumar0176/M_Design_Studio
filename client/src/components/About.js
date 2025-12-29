@@ -25,7 +25,7 @@ const About = () => {
       image: nandanImage
     },
     {
-      name: "Puja Gupta",
+      name: "Shreya Jain",
       position: "Sales Executive",
       image: salesImage
     }

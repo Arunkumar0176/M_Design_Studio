@@ -27,7 +27,7 @@ const AboutPage = () => {
       description: "Ensures seamless operations and project execution from planning to completion."
     },
     {
-      name: "Puja Gupta",
+      name: "Shreya Jain",
       position: "Sales Executive",
       image: salesImage,
       description: "Building client relationships and driving business growth through exceptional service."
