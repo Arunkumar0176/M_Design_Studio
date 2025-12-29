@@ -4,7 +4,7 @@ import React from 'react';
 import sunilImage from '../assets/images/team/sunil.jpg';
 import dheerajImage from '../assets/images/team/dheeraj.jpg';
 import nandanImage from '../assets/images/team/nandan.jpg';
-// import salesImage from '../assets/images/team/sales-executive.jpg';
+import salesImage from '../assets/images/team/puja.png';
 
 const AboutPage = () => {
   const teamMembers = [
@@ -22,14 +22,14 @@ const AboutPage = () => {
     },
     {
       name: "Nandan Prajatpati",
-      position: "Operator Manager",
+      position: "Operatoion Manager",
       image: nandanImage,
       description: "Ensures seamless operations and project execution from planning to completion."
     },
     {
       name: "Puja Gupta",
       position: "Sales Executive",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
+      image: salesImage,
       description: "Building client relationships and driving business growth through exceptional service."
     }
   ];

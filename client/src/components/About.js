@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import sunilImage from '../assets/images/team/sunil.jpg';
 import dheerajImage from '../assets/images/team/dheeraj.jpg';
 import nandanImage from '../assets/images/team/nandan.jpg';
-// import salesImage from '../assets/images/team/sales-executive.jpg';
+import salesImage from '../assets/images/team/puja.png';
 
 const About = () => {
   const teamMembers = [
@@ -27,7 +27,7 @@ const About = () => {
     {
       name: "Puja Gupta",
       position: "Sales Executive",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
+      image: salesImage
     }
   ];
 
@@ -101,7 +101,7 @@ const About = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className={`w-full h-48 transition-transform duration-300 hover:scale-110 ${
+                    className={`w-full h-48 transition-transform duration-300 hover:scale-120 ${
                       member.name === 'Dheeraj Kumar' || member.name === 'Puja Gupta' ? 'object-cover object-top' : 'object-cover'
                     }`}
                   />
