@@ -2,10 +2,10 @@ import React from 'react';
 
 // Import service background images from gallery
 import eventPlanningBg from '../assets/images/gallery/corportate-1.jpeg';
-import exhibitionBg from '../assets/images/gallery/exhibition-1.jpeg';
+import exhibitionBg from '../assets/images/gallery/Exhibition-6.jpeg';
 import corporateBg from '../assets/images/gallery/corporate-2.jpg';
-import weddingBg from '../assets/images/gallery/Branding-1.jpeg';
-import tradeShowBg from '../assets/images/gallery/Exhibition-6.jpeg';
+import weddingBg from '../assets/images/gallery/weeding-1.jpg';
+import tradeShowBg from '../assets/images/gallery/Exhibition-13.jpeg';
 import brandActivationBg from '../assets/images/gallery/Branding-3.jpeg';
 
 const Services = () => {

@@ -11,9 +11,7 @@ const Header = () => {
   return (
     <header className="fixed w-full top-0 z-50 bg-blue-900/95 backdrop-blur-sm shadow-lg border-b border-blue-800/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <div className="flex justify-between items-center py-4">
-          
           {/* Logo & Brand */}
           <div className="flex items-center">
             <Link
@@ -30,9 +28,9 @@ const Header = () => {
                 <span className="text-2xl font-serif font-bold">
                   M DESIGN STUDIO
                 </span>
-               <span className="text-[8px]  font-serif tracking-wider text-yellow-200">
-                Events Redefined
-               </span>
+                <span className="text-[8px]  font-serif tracking-wider text-yellow-200">
+                  Events Redefined
+                </span>
               </div>
             </Link>
           </div>
@@ -89,6 +87,7 @@ const Header = () => {
             >
               Contact
             </Link>
+           
           </nav>
 
           {/* Mobile Menu Button */}
