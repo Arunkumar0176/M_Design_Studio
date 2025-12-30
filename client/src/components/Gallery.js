@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import corporate1 from '../assets/images/gallery/corportate-1.jpeg';
 import corporate2 from '../assets/images/gallery/corporate-2.jpg';
 import corporate3 from '../assets/images/gallery/corporate-3.jpeg';
+import corporate4 from '../assets/images/gallery/corporate-4.jpg';
 import exhibition1 from '../assets/images/gallery/exhibition-1.jpeg';
 import exhibition2 from '../assets/images/gallery/Exibition-2.jpeg';
 import exhibition3 from '../assets/images/gallery/exibition-3.jpeg';
@@ -15,12 +16,18 @@ import exhibition8 from '../assets/images/gallery/Exhibition-8.jpg';
 import exhibition9 from '../assets/images/gallery/Exhibition-9.jpg';
 import exhibition10 from '../assets/images/gallery/Exhibition-10.jpeg';
 import exhibition11 from '../assets/images/gallery/Exhibition-11.jpeg';
+import exhibition12 from '../assets/images/gallery/Exhibition-12.jpeg';
+import exhibition13 from '../assets/images/gallery/Exhibition-13.jpeg';
 import branding1 from '../assets/images/gallery/Branding-1.jpeg';
 import branding2 from '../assets/images/gallery/Branding-2.jpeg';
 import branding3 from '../assets/images/gallery/Branding-3.jpeg';
 import branding4 from '../assets/images/gallery/Branding-4.jpeg';
 import branding5 from '../assets/images/gallery/Branding-5.jpeg';
 import branding6 from '../assets/images/gallery/Branding-6.jpeg';
+import branding7 from '../assets/images/gallery/Branding-7.jpeg';
+import branding8 from '../assets/images/gallery/Branding-8.jpeg';
+import weeding1 from '../assets/images/gallery/weeding-1.jpg';
+import tradeshow1 from '../assets/images/gallery/Exhibition-13.jpeg';
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -44,6 +51,12 @@ const Gallery = () => {
       _id: '17',
       title: 'Corporate Conference',
       image: corporate3,
+      category: 'corporate'
+    },
+    {
+      _id: '29',
+      title: 'Corporate Conference',
+      image: corporate4,
       category: 'corporate'
     },
     
@@ -114,6 +127,18 @@ const Gallery = () => {
       image: exhibition11,
       category: 'exhibition'
     },
+    {
+      _id: '23',
+      title: 'Exhibition Showcase',
+      image: exhibition12,
+      category: 'exhibition'
+    },
+    {
+      _id: '24',
+      title: 'Exhibition Space',
+      image: exhibition13,
+      category: 'exhibition'
+    },
     
     // Branding Images
     {
@@ -152,6 +177,34 @@ const Gallery = () => {
       image: branding6,
       category: 'branding'
     },
+    {
+      _id: '25',
+      title: 'Brand Event',
+      image: branding7,
+      category: 'branding'
+    },
+    {
+      _id: '26',
+      title: 'Brand Launch',
+      image: branding8,
+      category: 'branding'
+    },
+
+    //Wedding Image
+     {
+      _id: '27',
+      title: 'Wedding Ceremony',
+      image: weeding1,
+      category: 'wedding'
+    },
+
+    //TradeShow Image
+       {
+      _id: '28',
+      title: 'Trade Show',
+      image: tradeshow1,
+      category: 'tradeshow'
+    },
     
     // Placeholder for other categories
     {
@@ -160,6 +213,7 @@ const Gallery = () => {
       image: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       category: 'wedding'
     },
+
     {
       _id: '15',
       title: 'Trade Show',

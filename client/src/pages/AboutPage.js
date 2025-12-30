@@ -22,7 +22,7 @@ const AboutPage = () => {
     },
     {
       name: "Nandan Prajatpati",
-      position: "Operatoion Manager",
+      position: "Operation Manager",
       image: nandanImage,
       description: "Ensures seamless operations and project execution from planning to completion."
     },
