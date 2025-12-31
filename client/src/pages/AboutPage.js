@@ -109,12 +109,12 @@ const AboutPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div key={index} className="bg-white rounded-lg shadow-full overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <img
                   src={member.image}
                   alt={member.name}
                   className={`w-full h-64 object-cover ${
-                    member.name === 'Dheeraj Kumar' || member.name === 'Puja Gupta' ? 'object-top' : 'object-center'
+                    member.name === 'Dheeraj Kumar' || member.name === 'Shreya jain' ? 'object-top' : 'object-center'
                   }`}
                 />
                 <div className="p-6">

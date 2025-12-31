@@ -92,7 +92,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-primary mb-1">Address</h4>
-                  <p className="text-gray-600">GTB Nagar, New Delhi<br />PIN Code: 110009</p>
+                  <p className="text-gray-600">• GTB Nagar, New Delhi - 110009</p>
+                  <p className="text-gray-600">• Branch office Gopalganj, Bihar - 841428</p>
                 </div>
               </div>
 

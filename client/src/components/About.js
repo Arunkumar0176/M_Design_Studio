@@ -91,12 +91,13 @@ const About = () => {
 
         {/* Our Team Section */}
         <div className="text-center mb-16">
-          <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Our Team</h3>
+          <h3 className="text-2xl sm:text-4xl font-bold text-primary mb-4">Our Team</h3>
           <p className="text-gray-600 mb-8">Meet the professionals behind our success</p>
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              //rounded-lg, shadow-lg
+              <div key={index} className="bg-white rounded-full shadow-full overflow-hidden hover:shadow-xl transition-shadow duration-400 border-4 border-amber-200">
                 <div className="overflow-hidden">
                   <img
                     src={member.image}
