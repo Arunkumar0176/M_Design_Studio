@@ -97,13 +97,13 @@ const About = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member, index) => (
               //rounded-lg, shadow-lg
-              <div key={index} className="bg-white rounded-full shadow-full overflow-hidden hover:shadow-xl transition-shadow duration-400 border-4 border-amber-200">
+              <div key={index} className="bg-white rounded-full shadow-full overflow-hidden hover:shadow-xl transition-shadow duration-400 border-2 border-black-200">
                 <div className="overflow-hidden">
                   <img
                     src={member.image}
                     alt={member.name}
                     className={`w-full h-48 transition-transform duration-300 hover:scale-120 ${
-                      member.name === 'Dheeraj Kumar' || member.name === 'Puja Gupta' ? 'object-cover object-top' : 'object-cover'
+                      member.name === 'Dheeraj Kumar' || member.name === 'Shreya jain' ? 'object-cover object-top' : 'object-cover'
                     }`}
                   />
                 </div>
