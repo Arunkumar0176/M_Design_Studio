@@ -25,17 +25,16 @@ const Contact = () => {
 
     try {
       console.log('📧 Submitting contact form...');
-      console.log('Form data:', formData);
       
-      // Try EmailJS first
+      // Send email via EmailJS
       const emailResult = await sendContactEmail(formData);
       
       if (emailResult.success) {
-        console.log('✅ SUCCESS: Email sent via EmailJS!');
+        console.log('✅ Email sent successfully!');
         
-        // Also try database save as backup
+        // Also save to database
         try {
-          const response = await fetch('http://localhost:5003/api/contact', {
+          const response = await fetch('http://localhost:5000/api/contact', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -44,22 +43,21 @@ const Contact = () => {
           });
           
           if (response.ok) {
-            console.log('✅ Also saved to database');
+            console.log('✅ Contact saved to database');
           }
         } catch (dbError) {
-          console.log('⚠️ Database save failed, but email sent successfully');
+          console.log('⚠️ Database save failed, but email sent');
         }
         
-        // Show success only when email actually sent
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
-        console.error('❌ EMAILJS ERROR:', emailResult.error);
+        console.error('❌ Email sending failed:', emailResult.error);
         setSubmitStatus('error');
       }
       
     } catch (error) {
-      console.error('❌ FORM ERROR:', error);
+      console.error('❌ Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

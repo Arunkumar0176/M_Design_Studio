@@ -1,26 +1,27 @@
 // EmailJS Configuration
 import emailjs from '@emailjs/browser';
 
-// Development logging helper
-const isDev = process.env.NODE_ENV === 'development';
-const devLog = (...args) => isDev && console.log(...args);
-const devError = (...args) => isDev && console.error(...args);
-
-// EmailJS Configuration - Replace these with your actual values
-const PUBLIC_KEY = 'YOUR_PUBLIC_KEY_HERE'; // Get this from EmailJS Dashboard > Account > API Keys
+// EmailJS Configuration - Replace with your actual values
+const PUBLIC_KEY = 'zS_pocFmB-JHDnvly'; // Your actual public key
 const SERVICE_ID = 'service_dd39g6o'; // Your service ID
-const TEMPLATE_ID = 'template_mdesign'; // Create this template in EmailJS Dashboard
+const TEMPLATE_ID = 'template_mdesign'; // Your template ID
 
-// Initialize EmailJS
-if (PUBLIC_KEY !== 'YOUR_PUBLIC_KEY_HERE') {
+// Initialize EmailJS when the module loads
+if (typeof window !== 'undefined' && window.emailjs) {
+  // Use global emailjs if available (from CDN)
+  window.emailjs.init({
+    publicKey: PUBLIC_KEY,
+  });
+} else if (PUBLIC_KEY && PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+  // Fallback to npm package
   emailjs.init(PUBLIC_KEY);
 }
 
 export const sendContactEmail = async (formData) => {
-  // Check if EmailJS is properly configured
-  if (PUBLIC_KEY === 'YOUR_PUBLIC_KEY_HERE' || PUBLIC_KEY === 'YOUR_ACTUAL_PUBLIC_KEY') {
-    devLog('⚠️ EmailJS not configured: PUBLIC_KEY is still placeholder');
-    return { success: false, error: 'EmailJS not configured - PUBLIC_KEY needed' };
+  // Check if EmailJS is configured
+  if (!PUBLIC_KEY || PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+    console.error('⚠️ EmailJS not configured: Please add your PUBLIC_KEY');
+    return { success: false, error: 'EmailJS configuration missing' };
   }
 
   const templateParams = {
@@ -29,30 +30,26 @@ export const sendContactEmail = async (formData) => {
     phone: formData.phone || 'Not provided',
     message: formData.message,
     to_name: 'M Design Studio',
-    reply_to: formData.email,
-    to_email: 'dheerajsiet123@gmail.com'
+    reply_to: formData.email
   };
 
   try {
-    devLog('🚀 EmailJS Config:');
-    devLog('- Service ID:', SERVICE_ID);
-    devLog('- Template ID:', TEMPLATE_ID);
-    devLog('- Public Key:', PUBLIC_KEY.substring(0, 10) + '...');
+    console.log('📧 Sending email via EmailJS...');
     
-    const response = await emailjs.send(
+    // Use global emailjs from CDN if available, otherwise use npm package
+    const emailjsInstance = window.emailjs || emailjs;
+    
+    const response = await emailjsInstance.send(
       SERVICE_ID,
       TEMPLATE_ID,
       templateParams
     );
     
-    devLog('✅ EmailJS SUCCESS:', response);
+    console.log('✅ Email sent successfully:', response.status);
     return { success: true, response };
   } catch (error) {
-    devError('❌ EmailJS FAILED:');
-    devError('Error:', error);
-    devError('Error message:', error.message);
-    
-    return { success: false, error: error.message || error };
+    console.error('❌ EmailJS Error:', error);
+    return { success: false, error: error.message || 'Failed to send email' };
   }
 };
 
