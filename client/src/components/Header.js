@@ -29,7 +29,7 @@ const Header = () => {
                   M DESIGN STUDIO
                 </span>
                 <span className="text-[8px]  font-serif tracking-wider text-yellow-200">
-                  Events Redefined
+                  Vision Made Visible
                 </span>
               </div>
             </Link>

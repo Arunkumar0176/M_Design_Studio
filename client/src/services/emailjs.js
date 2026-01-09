@@ -45,7 +45,7 @@ export const sendContactEmail = async (formData) => {
       templateParams
     );
     
-    console.log('✅ Email sent successfully:', response.status);
+    console.log('Email sent successfully:', response.status);
     return { success: true, response };
   } catch (error) {
     console.error('❌ EmailJS Error:', error);

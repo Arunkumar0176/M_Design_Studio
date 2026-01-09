@@ -18,6 +18,9 @@ import exhibition10 from '../assets/images/gallery/Exhibition-10.jpeg';
 import exhibition11 from '../assets/images/gallery/Exhibition-11.jpeg';
 import exhibition12 from '../assets/images/gallery/Exhibition-12.jpeg';
 import exhibition13 from '../assets/images/gallery/Exhibition-13.jpeg';
+import exhibition14 from '../assets/images/gallery/Exhibition-14.jpeg';
+import exhibition15 from '../assets/images/gallery/Exhibition-15.jpeg';
+
 import branding1 from '../assets/images/gallery/Branding-1.jpeg';
 import branding2 from '../assets/images/gallery/Branding-2.jpeg';
 import branding3 from '../assets/images/gallery/Branding-3.jpeg';
@@ -26,8 +29,25 @@ import branding5 from '../assets/images/gallery/Branding-5.jpeg';
 import branding6 from '../assets/images/gallery/Branding-6.jpeg';
 import branding7 from '../assets/images/gallery/Branding-7.jpeg';
 import branding8 from '../assets/images/gallery/Branding-8.jpeg';
+import branding9 from '../assets/images/gallery/Branding-9.jpeg';
+import branding10 from '../assets/images/gallery/Branding-10.jpeg';
+import branding11 from '../assets/images/gallery/Branding-11.jpeg';
+import branding12 from '../assets/images/gallery/Branding-12.jpeg';
+
 import weeding1 from '../assets/images/gallery/weeding-1.jpg';
+import weeding2 from '../assets/images/gallery/weeding2.jpeg';
+import weeding3 from '../assets/images/gallery/weeding3.jpeg';
+import weeding4 from '../assets/images/gallery/weeding4.jpeg';
+import weeding5 from '../assets/images/gallery/weeding5.jpeg';
+import weeding6 from '../assets/images/gallery/weeding6.jpeg';
+import weeding7 from '../assets/images/gallery/weeding7.jpeg';
+import weeding8 from '../assets/images/gallery/weeding8.jpeg';
+
 import tradeshow1 from '../assets/images/gallery/Exhibition-13.jpeg';
+import conference1 from '../assets/images/gallery/conference1.jpeg';
+import conference2 from '../assets/images/gallery/conference2.jpeg';
+import conference3 from '../assets/images/gallery/conference3.jpeg';
+import conference4 from '../assets/images/gallery/conference4.jpeg';
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -139,6 +159,18 @@ const Gallery = () => {
       image: exhibition13,
       category: 'exhibition'
     },
+    {
+      _id: '41',
+      title: 'Exhibition Space',
+      image: exhibition14,
+      category: 'exhibition'
+    },
+    {
+      _id: '42',
+      title: 'Exhibition Space',
+      image: exhibition15,
+      category: 'exhibition'
+    },
     
     // Branding Images
     {
@@ -189,6 +221,30 @@ const Gallery = () => {
       image: branding8,
       category: 'branding'
     },
+    {
+      _id: '43',
+      title: 'Brand Launch',
+      image: branding9,
+      category: 'branding'
+    },
+    {
+      _id: '44',
+      title: 'Brand Launch',
+      image: branding10,
+      category: 'branding'
+    },
+    {
+      _id: '45',
+      title: 'Brand Launch',
+      image: branding11,
+      category: 'branding'
+    },
+    {
+      _id: '46',
+      title: 'Brand Launch',
+      image: branding12,
+      category: 'branding'
+    },
 
     //Wedding Image
      {
@@ -197,6 +253,49 @@ const Gallery = () => {
       image: weeding1,
       category: 'wedding'
     },
+     {
+      _id: '34',
+      title: 'Wedding Ceremony',
+      image: weeding2,
+      category: 'wedding'
+    },
+     {
+      _id: '35',
+      title: 'Wedding Ceremony',
+      image: weeding3,
+      category: 'wedding'
+    },
+     {
+      _id: '36',
+      title: 'Wedding Ceremony',
+      image: weeding4,
+      category: 'wedding'
+    },
+     {
+      _id: '37',
+      title: 'Wedding Ceremony',
+      image: weeding5,
+      category: 'wedding'
+    },
+     {
+      _id: '38',
+      title: 'Wedding Ceremony',
+      image: weeding6,
+      category: 'wedding'
+    },
+     {
+      _id: '39',
+      title: 'Wedding Ceremony',
+      image: weeding7,
+      category: 'wedding'
+    },
+     {
+      _id: '40',
+      title: 'Wedding Ceremony',
+      image: weeding8,
+      category: 'wedding'
+    },
+    
 
     //TradeShow Image
        {
@@ -205,14 +304,38 @@ const Gallery = () => {
       image: tradeshow1,
       category: 'tradeshow'
     },
+    {
+      _id: '30',
+      title: 'Conference',
+      image: conference1,
+      category: 'Conference'
+    },
+    {
+      _id: '31',
+      title: 'Conference',
+      image: conference2,
+      category: 'Conference'
+    },
+    {
+      _id: '32',
+      title: 'Conference',
+      image: conference3,
+      category: 'Conference'
+    },
+    {
+      _id: '33',
+      title: 'Conference',
+      image: conference4,
+      category: 'Conference'
+    },
     
     // Placeholder for other categories
-    {
-      _id: '14',
-      title: 'Wedding Ceremony',
-      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      category: 'wedding'
-    },
+    // {
+    //   _id: '14',
+    //   title: 'Wedding Ceremony',
+    //   image: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    //   category: 'wedding'
+    // },
 
     {
       _id: '15',
