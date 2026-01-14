@@ -127,7 +127,7 @@ const Gallery = () => {
       _id: '19',
       title: 'Exhibition Center',
       image: exhibition8,
-      category: 'exhibition'
+      category: 'exhibition, manpower'
     },
     {
       _id: '20',
