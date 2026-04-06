@@ -27,7 +27,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'dheerajsiet123@gmail.com',
-    pass: 'dheeraj@123'
+    pass: 'Dheeraj@034'
   }
 });
 
@@ -41,7 +41,7 @@ app.post('/api/send-email', async (req, res) => {
   const { name, email, phone, message, subject } = req.body;
   
   const mailOptions = {
-    from: 'dheerajsiet123@gmail.com',
+    from: 'macm7214@gmail.com',
     to: 'dheerajsiet123@gmail.com',
     subject: subject || `New Contact Form Message from ${name}`,
     html: `

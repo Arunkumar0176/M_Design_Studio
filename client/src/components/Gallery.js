@@ -21,6 +21,7 @@ import exhibition13 from '../assets/images/gallery/Exhibition-13.jpeg';
 import exhibition14 from '../assets/images/gallery/Exhibition-14.jpeg';
 import exhibition15 from '../assets/images/gallery/Exhibition-15.jpeg';
 
+
 import branding1 from '../assets/images/gallery/Branding-1.jpeg';
 import branding2 from '../assets/images/gallery/Branding-2.jpeg';
 import branding3 from '../assets/images/gallery/Branding-3.jpeg';
@@ -33,6 +34,7 @@ import branding9 from '../assets/images/gallery/Branding-9.jpeg';
 import branding10 from '../assets/images/gallery/Branding-10.jpeg';
 import branding11 from '../assets/images/gallery/Branding-11.jpeg';
 import branding12 from '../assets/images/gallery/Branding-12.jpeg';
+import branding13 from '../assets/images/gallery/Branding-13.jpeg';
 
 import weeding1 from '../assets/images/gallery/weeding-1.jpg';
 import weeding2 from '../assets/images/gallery/weeding2.jpeg';
@@ -44,10 +46,19 @@ import weeding7 from '../assets/images/gallery/weeding7.jpeg';
 import weeding8 from '../assets/images/gallery/weeding8.jpeg';
 
 import tradeshow1 from '../assets/images/gallery/Exhibition-13.jpeg';
+import tradeshow2 from '../assets/images/gallery/Exibition-12.jpeg';
+import tradeshow3 from '../assets/images/gallery/Exibition-14.jpeg';
+import tradeshow4 from '../assets/images/gallery/Exibition-15.jpeg';
+
 import conference1 from '../assets/images/gallery/conference1.jpeg';
 import conference2 from '../assets/images/gallery/conference2.jpeg';
 import conference3 from '../assets/images/gallery/conference3.jpeg';
 import conference4 from '../assets/images/gallery/conference4.jpeg';
+import conference5 from '../assets/images/gallery/conference-5.jpeg';
+import conference6 from '../assets/images/gallery/conference-6.jpeg';
+import conference7 from '../assets/images/gallery/conference-11.jpeg';
+
+
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -127,7 +138,7 @@ const Gallery = () => {
       _id: '19',
       title: 'Exhibition Center',
       image: exhibition8,
-      category: 'exhibition, manpower'
+      category: 'exhibition'
     },
     {
       _id: '20',
@@ -245,6 +256,12 @@ const Gallery = () => {
       image: branding12,
       category: 'branding'
     },
+    {
+      _id: '47',
+      title: 'Brand Launch',
+      image: branding13,
+      category: 'branding'
+    },
 
     //Wedding Image
      {
@@ -254,79 +271,109 @@ const Gallery = () => {
       category: 'wedding'
     },
      {
-      _id: '34',
+      _id: '48',
       title: 'Wedding Ceremony',
       image: weeding2,
       category: 'wedding'
     },
      {
-      _id: '35',
+      _id: '49',
       title: 'Wedding Ceremony',
       image: weeding3,
       category: 'wedding'
     },
      {
-      _id: '36',
+      _id: '50',
       title: 'Wedding Ceremony',
       image: weeding4,
       category: 'wedding'
     },
      {
-      _id: '37',
+      _id: '51',
       title: 'Wedding Ceremony',
       image: weeding5,
       category: 'wedding'
     },
      {
-      _id: '38',
+      _id: '52',
       title: 'Wedding Ceremony',
       image: weeding6,
       category: 'wedding'
     },
      {
-      _id: '39',
+      _id: '53',
       title: 'Wedding Ceremony',
       image: weeding7,
       category: 'wedding'
     },
      {
-      _id: '40',
+      _id: '54',
       title: 'Wedding Ceremony',
       image: weeding8,
       category: 'wedding'
     },
     
 
-    //TradeShow Image
-       {
+    //TradeShow Images
+    {
       _id: '28',
       title: 'Trade Show',
       image: tradeshow1,
       category: 'tradeshow'
     },
     {
+      _id: '57',
+      title: 'Trade Show Exhibition',
+      image: tradeshow2,
+      category: 'tradeshow'
+    },
+    {
+      _id: '58',
+      title: 'Trade Show Display',
+      image: tradeshow3,
+      category: 'tradeshow'
+    },
+    {
+      _id: '59',
+      title: 'Trade Show Booth',
+      image: tradeshow4,
+      category: 'tradeshow'
+    },
+    {
       _id: '30',
       title: 'Conference',
       image: conference1,
-      category: 'Conference'
+      category: 'conference'
     },
     {
       _id: '31',
       title: 'Conference',
       image: conference2,
-      category: 'Conference'
+      category: 'conference'
     },
     {
       _id: '32',
       title: 'Conference',
       image: conference3,
-      category: 'Conference'
+      category: 'conference'
     },
     {
       _id: '33',
       title: 'Conference',
       image: conference4,
-      category: 'Conference'
+      category: 'conference'
+    },
+    {
+      _id: '55',
+      title: 'Conference',
+      image: conference5,
+      category: 'conference'
+    },
+    {
+      _id: '60',
+      title: 'Conference',
+      image: conference7,
+      category: 'conference'
     },
     
     // Placeholder for other categories

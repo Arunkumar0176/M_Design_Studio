@@ -2,8 +2,8 @@
 
 ## Current Configuration:
 
-✅ **Email:** mdesignstudio.delhi  
-✅ **Password:** @delhimdf2026 
+✅ **Email:** dheerajsiet123@gmail.com 
+✅ **Password:** Dheeraj@034
 ✅ **MongoDB:** Connected to cluster  
 ✅ **Server Configuration:** Complete  
 
