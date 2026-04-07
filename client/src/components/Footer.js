@@ -135,12 +135,12 @@ const Footer = () => {
             © {currentYear} M Design Studio | Events that sparkle
           </p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-0">
-            <a href="#" className="text-gray-300 hover:text-accent text-sm transition-colors">
+            <button className="text-gray-300 hover:text-accent text-sm transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-gray-300 hover:text-accent text-sm transition-colors">
+            </button>
+            <button className="text-gray-300 hover:text-accent text-sm transition-colors">
               Terms of Service
-            </a>
+            </button>
             <span className="text-gray-400 text-sm">
               Designed By Arun Kumar
             </span>

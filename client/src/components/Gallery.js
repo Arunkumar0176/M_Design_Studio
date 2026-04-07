@@ -55,7 +55,6 @@ import conference2 from '../assets/images/gallery/conference2.jpeg';
 import conference3 from '../assets/images/gallery/conference3.jpeg';
 import conference4 from '../assets/images/gallery/conference4.jpeg';
 import conference5 from '../assets/images/gallery/conference-5.jpeg';
-import conference6 from '../assets/images/gallery/conference-6.jpeg';
 import conference7 from '../assets/images/gallery/conference-11.jpeg';
 
 
