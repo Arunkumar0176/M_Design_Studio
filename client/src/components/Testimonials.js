@@ -63,42 +63,42 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="section-padding bg-gradient-to-br from-blue-50 to-indigo-100">
+    <section className="section-padding bg-gradient-to-br from-slate-800 via-gray-900 to-blue-900">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it - hear from our satisfied clients about their experience with M Design Studio
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
+            Trusted by industry leaders for exceptional event experiences
           </p>
         </div>
 
         {/* Testimonial Slider */}
-        <div className="relative max-w-3xl mx-auto mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+        <div className="relative max-w-2xl mx-auto mb-10">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl shadow-xl p-6 border border-white/20">
             <div className="flex flex-col items-center text-center">
               <img
                 src={testimonials[currentSlide].image}
                 alt={testimonials[currentSlide].name}
-                className="w-16 h-16 rounded-full object-cover mb-4"
+                className="w-12 h-12 rounded-full object-cover mb-3"
               />
               
-              <div className="flex mb-4">
+              <div className="flex mb-3">
                 {[...Array(testimonials[currentSlide].rating)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
 
-              <blockquote className="text-base sm:text-lg text-gray-700 mb-4 leading-relaxed italic">
+              <blockquote className="text-sm sm:text-base text-gray-200 mb-3 leading-relaxed italic line-clamp-3">
                 "{testimonials[currentSlide].text}"
               </blockquote>
 
               <div>
-                <h4 className="font-semibold text-primary text-lg">{testimonials[currentSlide].name}</h4>
-                <p className="text-gray-500">{testimonials[currentSlide].company}</p>
+                <h4 className="font-semibold text-white text-base">{testimonials[currentSlide].name}</h4>
+                <p className="text-gray-300 text-sm">{testimonials[currentSlide].company}</p>
               </div>
             </div>
           </div>
@@ -106,56 +106,49 @@ const Testimonials = () => {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white/30 transition-all duration-300 border border-white/30"
           >
-            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white/30 transition-all duration-300 border border-white/30"
           >
-            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
 
         {/* Testimonial Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {testimonials.slice(0, 6).map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border-2 ${
-                index === currentSlide ? 'border-accent bg-accent/10' : 'border-gray-200 hover:border-accent/50'
+              className={`bg-white/10 backdrop-blur-sm rounded-lg p-4 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border ${
+                index === currentSlide ? 'border-yellow-400 bg-white/20' : 'border-white/20 hover:border-white/40'
               }`}
               onClick={() => setCurrentSlide(index)}
             >
-              <div className="flex items-center mb-4">
+              <div className="flex flex-col items-center text-center">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-3"
+                  className="w-10 h-10 rounded-full object-cover mb-2"
                 />
-                <div>
-                  <h5 className="font-semibold text-primary text-sm">{testimonial.name}</h5>
-                  <p className="text-gray-500 text-xs">{testimonial.company}</p>
+                <div className="flex mb-2">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <svg key={i} className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
                 </div>
+                <h5 className="font-semibold text-white text-xs mb-1">{testimonial.name}</h5>
+                <p className="text-gray-300 text-xs">{testimonial.company}</p>
               </div>
-              
-              <div className="flex mb-3">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-
-              <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                {testimonial.text}
-              </p>
             </div>
           ))}
         </div>

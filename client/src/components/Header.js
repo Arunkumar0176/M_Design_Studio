@@ -78,6 +78,16 @@ const Header = () => {
               Gallery
             </Link>
             <Link
+              to="/clients"
+              className={`transition-colors font-medium ${
+                isActive("/clients")
+                  ? "text-accent"
+                  : "text-blue-100 hover:text-accent"
+              }`}
+            >
+              Clients
+            </Link>
+            <Link
               to="/contact"
               className={`transition-colors font-medium ${
                 isActive("/contact")
@@ -119,7 +129,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-900 border-t border-blue-800">
-              {["/", "/about", "/services", "/gallery", "/contact"].map(
+              {["/", "/about", "/services", "/gallery", "/clients", "/contact"].map(
                 (path, index) => (
                   <Link
                     key={index}

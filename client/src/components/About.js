@@ -7,6 +7,9 @@ import dheerajImage from '../assets/images/team/dheeraj.jpg';
 import nandanImage from '../assets/images/team/nandan.jpg';
 import salesImage from '../assets/images/team/puja.png';
 
+// Import about section image
+import aboutImage from '../assets/images/gallery/About.jpg';
+
 const About = () => {
   const teamMembers = [
     {
@@ -69,15 +72,10 @@ const About = () => {
 
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              alt="About M Design Studio"
+              src={aboutImage}
+              alt="M Design Studio Exhibition Work"
               className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg shadow-lg"
             />
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-accent rounded-lg flex items-center justify-center">
-              <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
             {/* Customer Satisfaction Image */}
             {/* <div className="absolute top-8 right-4">
               <img
@@ -90,38 +88,40 @@ const About = () => {
         </div>
 
         {/* Our Team Section */}
-        <div className="text-center mb-16">
-          <h3 className="text-2xl sm:text-4xl font-bold text-primary mb-4">Our Team</h3>
-          <p className="text-gray-700 mb-11">Meet the professionals behind our success</p>
-          
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="text-center">
-                <div className="w-56 h-56 mx-auto mb-4 overflow-hidden rounded-full border-4 border-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className={`w-full h-full object-cover transition-transform duration-300 hover:scale-110 ${
-                      member.name === 'Dheeraj Kumar' || member.name === 'Shreya Jain' ? 'object-top' : ''
-                    }`}
-                  />
+        <div className="bg-gradient-to-br from-slate-800 via-gray-900 to-blue-900 rounded-2xl p-8 sm:p-12">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4">Our Team</h3>
+            <p className="text-gray-300 mb-8">Meet the professionals behind our success</p>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {teamMembers.map((member, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-56 h-56 mx-auto mb-4 overflow-hidden rounded-full border-4 border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-white/50">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className={`w-full h-full object-cover transition-transform duration-300 hover:scale-110 ${
+                        member.name === 'Dheeraj Kumar' || member.name === 'Shreya Jain' ? 'object-top' : ''
+                      }`}
+                    />
+                  </div>
+                  <h4 className="font-bold text-white mb-1">{member.name}</h4>
+                  <p className="text-yellow-400 text-sm font-medium">{member.position}</p>
                 </div>
-                <h4 className="font-bold text-primary mb-1">{member.name}</h4>
-                <p className="text-accent text-sm font-medium">{member.position}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-8">
-            <Link 
-              to="/about" 
-              className="inline-flex items-center bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300"
-            >
-              Learn More About Us
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+              ))}
+            </div>
+            
+            <div className="mt-8">
+              <Link 
+                to="/about" 
+                className="inline-flex items-center bg-blue-100 text-blue-800 px-6 py-3 rounded-lg font-medium hover:bg-blue-200 transition-all duration-300"
+              >
+                Learn More About Us
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

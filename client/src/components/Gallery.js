@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import corporate1 from '../assets/images/gallery/corportate-1.jpeg';
 import corporate2 from '../assets/images/gallery/corporate-2.jpg';
 import corporate3 from '../assets/images/gallery/corporate-3.jpeg';
-import corporate4 from '../assets/images/gallery/corporate-4.jpg';
+import corporate4 from '../assets/images/gallery/corporate-4.png';
 import exhibition1 from '../assets/images/gallery/exhibition-1.jpeg';
 import exhibition2 from '../assets/images/gallery/Exibition-2.jpeg';
 import exhibition3 from '../assets/images/gallery/exibition-3.jpeg';
@@ -383,12 +383,12 @@ const Gallery = () => {
     //   category: 'wedding'
     // },
 
-    {
-      _id: '15',
-      title: 'Trade Show',
-      image: 'https://images.unsplash.com/photo-1559223607-b4d0555ae227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      category: 'tradeshow'
-    }
+    // {
+    //   _id: '15',
+    //   title: 'Trade Show',
+    //   image: 'https://images.unsplash.com/photo-1559223607-b4d0555ae227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    //   category: 'tradeshow'
+    // }
   ];
 
   const categories = ['all', ...Array.from(new Set(images.map(img => img.category)))];
@@ -398,13 +398,13 @@ const Gallery = () => {
     : images.filter(img => img.category === selectedCategory);
 
   return (
-    <section id="gallery" className="section-padding bg-gradient-to-br from-green-50 to-teal-100">
+    <section id="gallery" className="section-padding bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
             Our Gallery
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Explore our portfolio of successful events and exhibitions
           </p>
         </div>

@@ -49,13 +49,13 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding bg-gradient-to-br from-purple-50 to-pink-100">
+    <section id="services" className="section-padding bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
             Our Services
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             We offer comprehensive event and exhibition solutions tailored to your needs
           </p>
         </div>
@@ -90,12 +90,12 @@ const Services = () => {
         </div>
 
         <div className="text-center mt-16">
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-gray-700 mb-6">
             Ready to bring your vision to life?
           </p>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary"
+            className="bg-blue-100 text-blue-800 px-8 py-3 rounded-lg font-medium hover:bg-blue-200 transition-all duration-300"
           >
             Start Your Project
           </button>

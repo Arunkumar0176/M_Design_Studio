@@ -6,6 +6,9 @@ import dheerajImage from '../assets/images/team/dheeraj.jpg';
 import nandanImage from '../assets/images/team/nandan.jpg';
 import salesImage from '../assets/images/team/puja.png';
 
+// Import about section image
+import aboutImage from '../assets/images/gallery/About.jpg';
+
 const AboutPage = () => {
   const teamMembers = [
     {
@@ -88,8 +91,8 @@ const AboutPage = () => {
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
-                alt="About M Design Studio"
+                src={aboutImage}
+                alt="M Design Studio Exhibition Work"
                 className="w-full h-96 object-cover rounded-lg shadow-lg"
               />
             </div>
@@ -98,18 +101,18 @@ const AboutPage = () => {
       </section>
 
       {/* Our Team */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-slate-800 via-gray-900 to-blue-900">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">Our Team</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4">Our Team</h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Meet the talented professionals who bring your vision to life
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-full overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:bg-white/20 transition-all duration-300 border border-white/20">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -118,9 +121,9 @@ const AboutPage = () => {
                   }`}
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-primary mb-2">{member.name}</h3>
-                  <p className="text-accent font-medium mb-3">{member.position}</p>
-                  <p className="text-gray-600 text-sm">{member.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
+                  <p className="text-yellow-400 font-medium mb-3">{member.position}</p>
+                  <p className="text-gray-300 text-sm">{member.description}</p>
                 </div>
               </div>
             ))}
