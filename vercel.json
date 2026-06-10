@@ -15,5 +15,10 @@
       "src": "/(.*)",
       "dest": "client/$1"
     }
-  ]
+  ],
+  "functions": {
+    "client/build/**": {
+      "runtime": "nodejs18.x"
+    }
+  }
 }
