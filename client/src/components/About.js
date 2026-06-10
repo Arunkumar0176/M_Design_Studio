@@ -6,7 +6,8 @@ import sunilImage from '../assets/images/team/sunil.jpg';
 import dheerajImage from '../assets/images/team/dheeraj.jpg';
 import nandanImage from '../assets/images/team/nandan.jpg';
 import salesImage from '../assets/images/team/puja.png';
-
+import unnatiImage from '../assets/images/team/Unnati.jpg';
+import arunImage from '../assets/images/team/Arun.jpg';
 // Import about section image
 import aboutImage from '../assets/images/gallery/About.jpg';
 
@@ -15,22 +16,38 @@ const About = () => {
     {
       name: "Sunil Kumar",
       position: "Founder & CEO",
-      image: sunilImage
+      image: sunilImage,
+      description: "Visionary leader with 10+ years in events and exhibitions, driving M Design Studio to excellence."
     },
     {
       name: "Dheeraj Kumar",
       position: "Director",
-      image: dheerajImage
+      image: dheerajImage,
+      description: "Strategic director overseeing operations and ensuring seamless project execution."
     },
     {
       name: "Nandan Prajatpati",
       position: "Creative Director",
-      image: nandanImage
+      image: nandanImage,
+      description: "Creative mastermind behind innovative designs and captivating exhibition concepts."
     },
     {
       name: "Shreya Jain",
       position: "Sales Executive",
-      image: salesImage
+      image: salesImage,
+      description: "Dynamic sales professional building lasting client relationships and driving business growth."
+    },
+    {
+      name: "Unnati Rawat",
+      position: "Senior Marketing Head (HOD)",
+      image: unnatiImage,
+      description: "Marketing strategist leading brand development and digital marketing initiatives."
+    },
+    {
+      name: "Arun Kumar",
+      position: "Technical Team Head",
+      image: arunImage,
+      description: "Technical expert managing IT infrastructure and ensuring seamless digital operations."
     }
   ];
 
@@ -93,10 +110,11 @@ const About = () => {
             <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4">Our Team</h3>
             <p className="text-gray-300 mb-8">Meet the professionals behind our success</p>
             
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {teamMembers.map((member, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-56 h-56 mx-auto mb-4 overflow-hidden rounded-full border-4 border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-white/50">
+            {/* Top row - 4 members */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              {teamMembers.slice(0, 4).map((member, index) => (
+                <div key={`top-${index}`} className="text-center">
+                  <div className="w-36 h-36 lg:w-44 lg:h-44 mx-auto mb-4 overflow-hidden rounded-full border-4 border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-white/50">
                     <img
                       src={member.image}
                       alt={member.name}
@@ -105,8 +123,25 @@ const About = () => {
                       }`}
                     />
                   </div>
-                  <h4 className="font-bold text-white mb-1">{member.name}</h4>
-                  <p className="text-yellow-400 text-sm font-medium">{member.position}</p>
+                  <h4 className="font-bold text-white mb-1 text-sm">{member.name}</h4>
+                  <p className="text-yellow-400 text-xs font-medium">{member.position}</p>
+                </div>
+              ))}
+            </div>
+            
+            {/* Bottom row - 2 members */}
+            <div className="flex justify-center gap-12">
+              {teamMembers.slice(4).map((member, index) => (
+                <div key={`bottom-${index}`} className="text-center">
+                  <div className="w-36 h-36 lg:w-44 lg:h-44 mx-auto mb-4 overflow-hidden rounded-full border-4 border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-white/50">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    />
+                  </div>
+                  <h4 className="font-bold text-white mb-1 text-sm">{member.name}</h4>
+                  <p className="text-yellow-400 text-xs font-medium">{member.position}</p>
                 </div>
               ))}
             </div>

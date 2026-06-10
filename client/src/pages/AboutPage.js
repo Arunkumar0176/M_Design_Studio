@@ -5,6 +5,8 @@ import sunilImage from '../assets/images/team/sunil.jpg';
 import dheerajImage from '../assets/images/team/dheeraj.jpg';
 import nandanImage from '../assets/images/team/nandan.jpg';
 import salesImage from '../assets/images/team/puja.png';
+const unnatiImage = require('../assets/images/team/Unnati.jpg');
+const arunImage = require('../assets/images/team/Arun.jpg');
 
 // Import about section image
 import aboutImage from '../assets/images/gallery/About.jpg';
@@ -34,7 +36,19 @@ const AboutPage = () => {
       position: "Sales Executive",
       image: salesImage,
       description: "Building client relationships and driving business growth through exceptional service."
-    }
+    },
+    {
+          name: "Unnati Rawat",
+          position: "Senior Marketing Head (HOD)",
+          image: unnatiImage || '/src/assets/images/team/Unnati.jpg',
+          description: "Marketing strategist leading brand development and digital marketing initiatives."
+        },
+        {
+          name: "Arun Kumar",
+          position: "Technical Team Head",
+          image: arunImage || '/src/assets/images/team/Arun.jpg',
+          description: "Technical expert managing IT infrastructure and ensuring seamless digital operations."
+        }
   ];
 
   return (

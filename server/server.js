@@ -17,10 +17,38 @@ app.use(cors({
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('MongoDB connected successfully'))
-  .catch(err => console.log('MongoDB connection error:', err));
+// MongoDB Connection with fallback
+const connectMongoDB = async () => {
+  try {
+    const mongoOptions = {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    };
+    
+    // Try local MongoDB first
+    try {
+      await mongoose.connect(process.env.MONGODB_URI, mongoOptions);
+      console.log('MongoDB connected successfully (Local)');
+      return;
+    } catch (localErr) {
+      console.log('Local MongoDB not available, trying Atlas...');
+      
+      // Fallback to Atlas if local fails
+      if (process.env.MONGODB_ATLAS_URI) {
+        await mongoose.connect(process.env.MONGODB_ATLAS_URI, mongoOptions);
+        console.log('MongoDB connected successfully (Atlas)');
+        return;
+      }
+    }
+  } catch (err) {
+    console.log('MongoDB connection error:', err.message);
+    console.log('Server will continue running without database connection');
+  }
+};
+
+connectMongoDB();
 
 // Email configuration
 const transporter = nodemailer.createTransport({

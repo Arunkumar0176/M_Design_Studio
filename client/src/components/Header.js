@@ -25,10 +25,10 @@ const Header = () => {
               />
 
               <div className="flex flex-col leading-tight">
-                <span className="text-2xl font-serif font-bold">
+                <span className="text-lg font-serif font-bold">
                   M DESIGN STUDIO
                 </span>
-                <span className="text-[8px]  font-serif tracking-wider text-yellow-200">
+                <span className="text-[8px] font-serif tracking-wider text-yellow-200">
                   Vision Made Visible
                 </span>
               </div>
