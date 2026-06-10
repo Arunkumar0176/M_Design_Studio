@@ -1,6 +1,6 @@
 {
-  "name": "mdesignstudio",
   "version": 2,
+  "name": "m-design-studio",
   "builds": [
     {
       "src": "client/package.json",
@@ -12,13 +12,27 @@
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/client/build/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/client/build/favicon.ico"
+    },
+    {
+      "src": "/logo.jpeg",
+      "dest": "/client/build/logo.jpeg"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/client/build/manifest.json"
+    },
+    {
       "src": "/(.*)",
-      "dest": "client/$1"
+      "dest": "/client/build/index.html"
     }
   ],
-  "functions": {
-    "client/build/**": {
-      "runtime": "nodejs18.x"
-    }
+  "env": {
+    "NODE_VERSION": "18.17.0"
   }
 }
