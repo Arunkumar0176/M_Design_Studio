@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Import gallery images
 import corporate1 from '../assets/images/gallery/corportate-1.jpeg';
@@ -36,14 +37,18 @@ import branding11 from '../assets/images/gallery/Branding-11.jpeg';
 import branding12 from '../assets/images/gallery/Branding-12.jpeg';
 import branding13 from '../assets/images/gallery/Branding-13.jpeg';
 
-import weeding1 from '../assets/images/gallery/weeding-1.jpg';
-import weeding2 from '../assets/images/gallery/weeding2.jpeg';
-import weeding3 from '../assets/images/gallery/weeding3.jpeg';
-import weeding4 from '../assets/images/gallery/weeding4.jpeg';
-import weeding5 from '../assets/images/gallery/weeding5.jpeg';
-import weeding6 from '../assets/images/gallery/weeding6.jpeg';
-import weeding7 from '../assets/images/gallery/weeding7.jpeg';
-import weeding8 from '../assets/images/gallery/weeding8.jpeg';
+import exhibition16 from '../assets/images/gallery/Exibition-16.jpeg';
+import exhibition17 from '../assets/images/gallery/Exibition-17.jpeg';
+import exhibition18 from '../assets/images/gallery/Exibition-18.jpeg';
+import exhibition19 from '../assets/images/gallery/Exibition-19.jpeg';
+import exhibition20 from '../assets/images/gallery/Exibition-20.jpeg';
+import exhibition21 from '../assets/images/gallery/Exibition-21.jpeg';
+import exhibition22 from '../assets/images/gallery/Exibition-22.jpeg';
+import exhibition23 from '../assets/images/gallery/Exibition-23.jpeg';
+import exhibition24 from '../assets/images/gallery/Exibition-24.jpeg';
+import exhibition25 from '../assets/images/gallery/Exibition-25.jpeg';
+import exhibition26 from '../assets/images/gallery/Exibition-26.jpeg';
+import exhibition27 from '../assets/images/gallery/Exibition-27.jpeg';
 
 import tradeshow1 from '../assets/images/gallery/Exhibition-13.jpeg';
 import tradeshow2 from '../assets/images/gallery/Exibition-12.jpeg';
@@ -60,8 +65,15 @@ import conference7 from '../assets/images/gallery/conference-11.jpeg';
 
 
 const Gallery = () => {
+  const location = useLocation();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const cat = params.get('category');
+    if (cat) setSelectedCategory(cat);
+  }, [location.search]);
 
   const images = [
     // Corporate Events
@@ -181,6 +193,78 @@ const Gallery = () => {
       image: exhibition15,
       category: 'exhibition'
     },
+    {
+      _id: '61',
+      title: 'Exhibition Space',
+      image: exhibition16,
+      category: 'exhibition'
+    },
+    {
+      _id: '62',
+      title: 'Exhibition Space',
+      image: exhibition17,
+      category: 'exhibition'
+    },
+    {
+      _id: '63',
+      title: 'Exhibition Space',
+      image: exhibition18,
+      category: 'exhibition'
+    },
+    {
+      _id: '64',
+      title: 'Exhibition Space',
+      image: exhibition19,
+      category: 'exhibition'
+    },
+    {
+      _id: '65',
+      title: 'Exhibition Space',
+      image: exhibition20,
+      category: 'exhibition'
+    },
+    {
+      _id: '66',
+      title: 'Exhibition Space',
+      image: exhibition21,
+      category: 'exhibition'
+    },
+    {
+      _id: '67',
+      title: 'Exhibition Space',
+      image: exhibition22,
+      category: 'exhibition'
+    },
+    {
+      _id: '68',
+      title: 'Exhibition Space',
+      image: exhibition23,
+      category: 'exhibition'
+    },
+    {
+      _id: '69',
+      title: 'Exhibition Space',
+      image: exhibition24,
+      category: 'exhibition'
+    },
+    {
+      _id: '70',
+      title: 'Exhibition Space',
+      image: exhibition25,
+      category: 'exhibition'
+    },
+    {
+      _id: '71',
+      title: 'Exhibition Space',
+      image: exhibition26,
+      category: 'exhibition'
+    },
+    {
+      _id: '72',
+      title: 'Exhibition Space',
+      image: exhibition27,
+      category: 'exhibition'
+    },
     
     // Branding Images
     {
@@ -262,55 +346,7 @@ const Gallery = () => {
       category: 'branding'
     },
 
-    //Wedding Image
-     {
-      _id: '27',
-      title: 'Wedding Ceremony',
-      image: weeding1,
-      category: 'wedding'
-    },
-     {
-      _id: '48',
-      title: 'Wedding Ceremony',
-      image: weeding2,
-      category: 'wedding'
-    },
-     {
-      _id: '49',
-      title: 'Wedding Ceremony',
-      image: weeding3,
-      category: 'wedding'
-    },
-     {
-      _id: '50',
-      title: 'Wedding Ceremony',
-      image: weeding4,
-      category: 'wedding'
-    },
-     {
-      _id: '51',
-      title: 'Wedding Ceremony',
-      image: weeding5,
-      category: 'wedding'
-    },
-     {
-      _id: '52',
-      title: 'Wedding Ceremony',
-      image: weeding6,
-      category: 'wedding'
-    },
-     {
-      _id: '53',
-      title: 'Wedding Ceremony',
-      image: weeding7,
-      category: 'wedding'
-    },
-     {
-      _id: '54',
-      title: 'Wedding Ceremony',
-      image: weeding8,
-      category: 'wedding'
-    },
+
     
 
     //TradeShow Images

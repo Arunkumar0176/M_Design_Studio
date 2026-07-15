@@ -1,50 +1,50 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Import service background images from gallery
 import eventPlanningBg from '../assets/images/gallery/corportate-1.jpeg';
 import exhibitionBg from '../assets/images/gallery/Exhibition-6.jpeg';
 import corporateBg from '../assets/images/gallery/corporate-2.jpg';
-import weddingBg from '../assets/images/gallery/weeding2.jpeg';
 import tradeShowBg from '../assets/images/gallery/Exhibition-13.jpeg';
 import brandActivationBg from '../assets/images/gallery/Branding-3.jpeg';
 
 const Services = () => {
+  const navigate = useNavigate();
   const services = [
     {
       title: 'Event Planning',
       description: 'Complete event management from concept to execution, ensuring every detail is perfect.',
       icon: '🎯',
-      bgImage: eventPlanningBg
+      bgImage: eventPlanningBg,
+      category: 'corporate'
     },
     {
       title: 'Exhibition Design',
       description: 'Creative and functional exhibition stands that capture attention and drive engagement.',
       icon: '🎨',
-      bgImage: exhibitionBg
+      bgImage: exhibitionBg,
+      category: 'exhibition'
     },
     {
       title: 'Corporate Events',
       description: 'Professional corporate event solutions including conferences, seminars, and product launches.',
       icon: '🏢',
-      bgImage: corporateBg
-    },
-    {
-      title: 'Wedding Planning',
-      description: 'Make your special day unforgettable with our comprehensive wedding planning services.',
-      icon: '💒',
-      bgImage: weddingBg
+      bgImage: corporateBg,
+      category: 'corporate'
     },
     {
       title: 'Trade Shows',
       description: 'Strategic trade show planning and execution to maximize your business impact.',
       icon: '🤝',
-      bgImage: tradeShowBg
+      bgImage: tradeShowBg,
+      category: 'tradeshow'
     },
     {
       title: 'Brand Activations',
       description: 'Innovative brand activation campaigns that create lasting connections with your audience.',
       icon: '⚡',
-      bgImage: brandActivationBg
+      bgImage: brandActivationBg,
+      category: 'branding'
     }
   ];
 
@@ -64,7 +64,8 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 hover:-translate-y-2 border-l-4 border-accent"
+              onClick={() => navigate(`/gallery?category=${service.category}`)}
+              className="group relative overflow-hidden rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 hover:-translate-y-2 border-l-4 border-accent cursor-pointer"
               style={{
                 backgroundImage: `url(${service.bgImage})`,
                 backgroundSize: 'cover',

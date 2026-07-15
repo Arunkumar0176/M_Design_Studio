@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/images/company_logo/logo.jpeg";
+import logo from "../assets/images/company_logo/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ const Header = () => {
               <img
                 src={logo}
                 alt="M Design Studio Logo"
-                className="h-11 w-11 rounded-full object-cover"
+                className="h-10 w-10 rounded-full object-cover scale-125"
               />
 
               <div className="flex flex-col leading-tight">

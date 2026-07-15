@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import sunilImage from '../assets/images/team/sunil.jpg';
 import dheerajImage from '../assets/images/team/dheeraj.jpg';
 import nandanImage from '../assets/images/team/nandan.jpg';
-import salesImage from '../assets/images/team/puja.png';
 import unnatiImage from '../assets/images/team/Unnati.jpg';
 import arunImage from '../assets/images/team/Arun.jpg';
 // Import about section image
@@ -30,12 +29,6 @@ const About = () => {
       position: "Creative Director",
       image: nandanImage,
       description: "Creative mastermind behind innovative designs and captivating exhibition concepts."
-    },
-    {
-      name: "Shreya Jain",
-      position: "Sales Executive",
-      image: salesImage,
-      description: "Dynamic sales professional building lasting client relationships and driving business growth."
     },
     {
       name: "Unnati Rawat",
@@ -119,7 +112,7 @@ const About = () => {
                       src={member.image}
                       alt={member.name}
                       className={`w-full h-full object-cover transition-transform duration-300 hover:scale-110 ${
-                        member.name === 'Dheeraj Kumar' || member.name === 'Shreya Jain' ? 'object-top' : ''
+                        member.name === 'Dheeraj Kumar' ? 'object-top' : ''
                       }`}
                     />
                   </div>

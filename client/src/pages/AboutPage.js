@@ -4,7 +4,7 @@ import React from 'react';
 import sunilImage from '../assets/images/team/sunil.jpg';
 import dheerajImage from '../assets/images/team/dheeraj.jpg';
 import nandanImage from '../assets/images/team/nandan.jpg';
-import salesImage from '../assets/images/team/puja.png';
+//import salesImage from '../assets/images/team/puja.jpg';
 import unnatiImage from '../assets/images/team/Unnati.jpg';
 import arunImage from '../assets/images/team/Arun.jpg';
 // Import about section image
@@ -29,12 +29,6 @@ const AboutPage = () => {
       position: "Creative Director",
       image: nandanImage,
       description: "Ensures seamless operations and project execution from planning to completion."
-    },
-    {
-      name: "Shreya Jain",
-      position: "Sales Executive",
-      image: salesImage,
-      description: "Building client relationships and driving business growth through exceptional service."
     },
     {
       name: "Unnati Rawat",
@@ -130,7 +124,7 @@ const AboutPage = () => {
                   src={member.image}
                   alt={member.name}
                   className={`w-full h-64 object-cover ${
-                    member.name === 'Dheeraj Kumar' || member.name === 'Shreya jain' ? 'object-top' : 'object-center'
+                    member.name === 'Dheeraj Kumar' ? 'object-top' : 'object-center'
                   }`}
                 />
                 <div className="p-6">
