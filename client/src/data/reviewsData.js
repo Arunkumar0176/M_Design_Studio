@@ -1,0 +1,67 @@
+const defaultReviews = [
+  {
+    id: 1,
+    name: 'Rahul Sharma',
+    company: 'ABB India',
+    rating: 5,
+    comment: 'Outstanding exhibition design! The team delivered beyond our expectations.',
+    date: '2024-03-15',
+    photo: null,
+  },
+  {
+    id: 2,
+    name: 'Priya Mehta',
+    company: 'Solex Energy',
+    rating: 5,
+    comment: 'Professional team, flawless execution. Our trade show booth was the highlight of the event.',
+    date: '2024-02-20',
+    photo: null,
+  },
+  {
+    id: 3,
+    name: 'Amit Verma',
+    company: 'Delval Controls',
+    rating: 4,
+    comment: 'Great creativity and attention to detail. Will definitely work with them again.',
+    date: '2024-01-10',
+    photo: null,
+  },
+  {
+    id: 4,
+    name: 'Sunita Agarwal',
+    company: 'Rshabh Industries',
+    rating: 5,
+    comment: 'M Design Studio transformed our vision into reality. Exceptional work!',
+    date: '2023-12-05',
+    photo: null,
+  },
+  {
+    id: 5,
+    name: 'Vikram Singh',
+    company: 'Surya Group',
+    rating: 5,
+    comment: 'Best event management company in Delhi. Highly recommended for exhibitions.',
+    date: '2023-11-18',
+    photo: null,
+  },
+  {
+    id: 6,
+    name: 'Neha Gupta',
+    company: 'Alankar Jewels',
+    rating: 4,
+    comment: 'Creative designs and timely delivery. Our exhibition stand attracted maximum visitors.',
+    date: '2023-10-22',
+    photo: null,
+  },
+  {
+    id: 6,
+    name: 'Neha Gupta',
+    company: 'Alankar Jewels',
+    rating: 4,
+    comment: 'Creative designs and timely delivery. Our exhibition stand attracted maximum visitors.',
+    date: '2023-10-22',
+    photo: null,
+  }
+];
+
+export default defaultReviews;

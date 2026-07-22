@@ -1,58 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import defaultReviews from '../data/reviewsData';
+
+const Avatar = ({ name, image, size = 'md' }) => {
+  const [imgError, setImgError] = useState(false);
+  const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+  const style = size === 'md'
+    ? { width: 48, height: 48, fontSize: 16 }
+    : { width: 40, height: 40, fontSize: 12 };
+
+  if (!image || imgError) {
+    return (
+      <div style={{ ...style, backgroundColor: '#d4af37', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12, flexShrink: 0, fontWeight: 'bold', color: '#fff' }}>
+        {initials}
+      </div>
+    );
+  }
+  return (
+    <img
+      src={image}
+      alt={name}
+      onError={() => setImgError(true)}
+      style={{ ...style, borderRadius: '50%', objectFit: 'cover', marginBottom: 12 }}
+    />
+  );
+};
 
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const testimonials = [
-    {
-      id: 1,
-      name: "Rajesh Sharma",
-      company: "Sharma Industries Ltd",
-      image: "https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?q=80&w=2106&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      text: "M Design Studio ne hamare corporate event ko bilkul perfect banaya. Sunil ji aur unki team ka dedication aur creativity kamal ka hai. Hamari company ke saath kaam karke bahut khushi hui.",
-      rating: 5
-    },
-    {
-      id: 2,
-      name: "Priya Agarwal",
-      company: "Wedding Client, Delhi",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      text: "Hamari shadi ke liye M Design Studio se behtar koi nahi mil sakta tha. Dheeraj sir ne har detail ka khayal rakha. Decoration se lekar management tak sab kuch perfect tha. Highly recommend karte hain!",
-      rating: 5
-    },
-    {
-      id: 3,
-      name: "Vikram Singh",
-      company: "Trade Fair Organizer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      text: "Exhibition mein hamara stall sabse attractive tha. M Design Studio ki team ne itna beautiful design banaya ki visitors khud-ba-khud attract ho rahe the. Business leads bhi bahut acche mile.",
-      rating: 5
-    },
-    {
-      id: 4,
-      name: "Sneha Kapoor",
-      company: "Brand Manager, Mumbai",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      text: "Brand activation event ke liye M Design Studio choose karna best decision tha. Professional approach, creative ideas aur timely delivery - sab kuch perfect. Nandan ji ka coordination excellent tha.",
-      rating: 5
-    },
-    {
-      id: 5,
-      name: "Arjun Mehta",
-      company: "Corporate Client, Gurgaon",
-      image: "https://images.unsplash.com/photo-1616002851413-ebcc9611139d?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      text: "Company ke annual function ke liye M Design Studio se contact kiya tha. Unka work quality aur dedication dekhkar impressed ho gaye. Budget ke andar itna accha event organize kiya ki sab praise kar rahe the.",
-      rating: 5
-    },
-    {
-      id: 6,
-      name: "Kavita Joshi",
-      company: "Event Organizer, Noida",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      text: "M Design Studio team ke saath kaam karna bahut accha experience raha. Puja ji ka sales support aur team ka execution dono hi outstanding hai. Future mein bhi inke saath kaam karna chahenge.",
-      rating: 5
-    }
-  ];
+  const navigate = useNavigate();
+  const toTestimonial = (r) => ({
+    id: r.id,
+    name: r.name,
+    company: r.company || '',
+    image: r.photo || null,
+    text: r.comment,
+    rating: r.rating,
+  });
+
+  const [testimonials, setTestimonials] = useState(defaultReviews.map(toTestimonial));
+
+  useEffect(() => {
+    fetch('http://localhost:5003/api/reviews')
+      .then(res => res.json())
+      .then(data => { if (Array.isArray(data) && data.length > 0) setTestimonials(data.map(toTestimonial)); })
+      .catch(() => setTestimonials(defaultReviews.map(toTestimonial)));
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % testimonials.length);
@@ -78,11 +72,7 @@ const Testimonials = () => {
         <div className="relative max-w-2xl mx-auto mb-10">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl shadow-xl p-6 border border-white/20">
             <div className="flex flex-col items-center text-center">
-              <img
-                src={testimonials[currentSlide].image}
-                alt={testimonials[currentSlide].name}
-                className="w-12 h-12 rounded-full object-cover mb-3"
-              />
+              <Avatar name={testimonials[currentSlide].name} image={testimonials[currentSlide].image} size="md" />
               
               <div className="flex mb-3">
                 {[...Array(testimonials[currentSlide].rating)].map((_, i) => (
@@ -134,11 +124,7 @@ const Testimonials = () => {
               onClick={() => setCurrentSlide(index)}
             >
               <div className="flex flex-col items-center text-center">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-10 h-10 rounded-full object-cover mb-2"
-                />
+                <Avatar name={testimonial.name} image={testimonial.image} size="sm" />
                 <div className="flex mb-2">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg key={i} className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -151,6 +137,15 @@ const Testimonials = () => {
               </div>
             </div>
           ))}
+        </div>
+        {/* View More Button */}
+        <div className="text-center mt-10">
+          <button
+            onClick={() => navigate('/clients')}
+            className="px-8 py-3 rounded-full border-2 border-yellow-400 text-yellow-400 font-medium hover:bg-yellow-400 hover:text-gray-900 transition-all duration-300"
+          >
+            View More Reviews
+          </button>
         </div>
       </div>
     </section>

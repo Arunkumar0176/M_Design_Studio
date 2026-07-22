@@ -63,6 +63,7 @@ const transporter = nodemailer.createTransport({
 app.use('/api/content', require('./routes/content'));
 app.use('/api/gallery', require('./routes/gallery'));
 app.use('/api/contact', require('./routes/contact'));
+app.use('/api/reviews', require('./routes/reviews'));
 
 // Email sending route
 app.post('/api/send-email', async (req, res) => {

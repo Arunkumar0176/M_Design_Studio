@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import defaultReviews from '../data/reviewsData';
 
 // Import client logos
 import abbLogo from '../assets/images/client_logo/ABB.webp';
@@ -17,6 +18,51 @@ import exhibition5 from '../assets/images/gallery/Exhibition-14.jpeg';
 import exhibition6 from '../assets/images/gallery/Exhibition-15.jpeg';
 
 const ClientsPage = () => {
+  const [reviews, setReviews] = useState(defaultReviews);
+  const [showAll, setShowAll] = useState(false);
+  const [form, setForm] = useState({ name: '', company: '', rating: 5, comment: '', photo: null });
+  const [photoPreview, setPhotoPreview] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    fetch('http://localhost:5003/api/reviews')
+      .then(res => res.json())
+      .then(data => { if (Array.isArray(data)) setReviews(data); })
+      .catch(() => setReviews(defaultReviews));
+  }, []);
+
+  const handlePhoto = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPhotoPreview(reader.result);
+      setForm(prev => ({ ...prev, photo: reader.result }));
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!form.name.trim() || !form.comment.trim()) return;
+    fetch('http://localhost:5003/api/reviews', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    })
+      .then(res => res.json())
+      .then(saved => {
+        setReviews(prev => [saved, ...prev]);
+        setShowAll(true);
+        setForm({ name: '', company: '', rating: 5, comment: '', photo: null });
+        setPhotoPreview(null);
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 3000);
+      })
+      .catch(() => alert('Failed to save review. Please try again.'));
+  };
+
+  const visibleReviews = showAll ? reviews : reviews.slice(0, 6);
   const clients = [
     {
       name: "ABB",
@@ -199,6 +245,117 @@ const ClientsPage = () => {
           </div>
         </div>
       </section>
+      {/* What Our Clients Say */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">What Our Clients Say</h2>
+            <p className="text-lg text-gray-600">Real experiences from our valued clients</p>
+          </div>
+
+          {/* Review Form */}
+          <div className="max-w-2xl mx-auto mb-16 bg-white rounded-xl shadow-lg p-8">
+            <h3 className="text-xl font-bold text-primary mb-6">Share Your Experience</h3>
+            {submitted && (
+              <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg text-sm font-medium">
+                ✅ Thank you! Your review has been submitted.
+              </div>
+            )}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Your Name *"
+                  value={form.name}
+                  onChange={e => setForm({ ...form, name: e.target.value })}
+                  required
+                  style={{ display: 'block', width: '100%', border: '1px solid #d1d5db', borderRadius: '8px', padding: '8px 16px', fontSize: '14px', color: '#111' }}
+                />
+                <input
+                  type="text"
+                  placeholder="Company (optional)"
+                  value={form.company}
+                  onChange={e => setForm({ ...form, company: e.target.value })}
+                  style={{ display: 'block', width: '100%', border: '1px solid #d1d5db', borderRadius: '8px', padding: '8px 16px', fontSize: '14px', color: '#111' }}
+                />
+              </div>
+              {/* Photo Upload */}
+              <div className="flex items-center gap-4">
+                <label style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10 }}>
+                  {photoPreview
+                    ? <img src={photoPreview} alt="preview" style={{ width: 48, height: 48, borderRadius: '50%', objectFit: 'cover', border: '2px solid #d4af37' }} />
+                    : <div style={{ width: 48, height: 48, borderRadius: '50%', backgroundColor: '#f3f4f6', border: '2px dashed #d1d5db', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>📷</div>
+                  }
+                  <span style={{ fontSize: 13, color: '#6b7280' }}>{photoPreview ? 'Change Photo' : 'Upload Profile Photo (optional)'}</span>
+                  <input type="file" accept="image/*" onChange={handlePhoto} style={{ display: 'none' }} />
+                </label>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-600">Rating:</span>
+                {[1,2,3,4,5].map(star => (
+                  <button type="button" key={star} onClick={() => setForm({ ...form, rating: star })}>
+                    <span className={`text-2xl ${star <= form.rating ? 'text-yellow-400' : 'text-gray-300'}`}>★</span>
+                  </button>
+                ))}
+              </div>
+              <textarea
+                placeholder="Write your review here... *"
+                value={form.comment}
+                onChange={e => setForm({ ...form, comment: e.target.value })}
+                required
+                rows={4}
+                style={{ display: 'block', width: '100%', border: '1px solid #d1d5db', borderRadius: '8px', padding: '8px 16px', fontSize: '14px', color: '#111', resize: 'none' }}
+              />
+              <button
+                type="submit"
+                style={{ backgroundColor: '#d4af37', color: '#fff', padding: '8px 32px', borderRadius: '8px', fontWeight: '500', cursor: 'pointer' }}
+              >
+                Submit Review
+              </button>
+            </form>
+          </div>
+
+          {/* Reviews Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {visibleReviews.map((review, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-3 mb-3">
+                  {review.photo
+                    ? <img src={review.photo} alt={review.name} style={{ width: 48, height: 48, borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
+                    : <div style={{ width: 48, height: 48, borderRadius: '50%', backgroundColor: '#d4af37', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', color: '#fff', fontSize: 16, flexShrink: 0 }}>
+                        {review.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                      </div>
+                  }
+                  <div>
+                    <p className="font-semibold text-primary text-sm">{review.name}</p>
+                    {review.company && <p className="text-gray-500 text-xs">{review.company}</p>}
+                  </div>
+                </div>
+                <div className="flex items-center gap-1 mb-3">
+                  {[1,2,3,4,5].map(star => (
+                    <span key={star} className={`text-lg ${star <= review.rating ? 'text-yellow-400' : 'text-gray-200'}`}>★</span>
+                  ))}
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-3">"{review.comment}"</p>
+                <p className="text-gray-400 text-xs">{review.date}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Show More / Less */}
+          {reviews.length > 6 && (
+            <div className="text-center mt-10">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="px-8 py-3 rounded-full border-2 border-accent text-accent font-medium hover:bg-accent hover:text-white transition-all duration-300"
+              >
+                {showAll ? 'Show Less' : `Show More (${reviews.length - 6} more)`}
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
     </div>
   );
 };
