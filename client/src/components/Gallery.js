@@ -68,6 +68,7 @@ const Gallery = () => {
   const location = useLocation();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -429,9 +430,13 @@ const Gallery = () => {
 
   const categories = ['all', ...Array.from(new Set(images.map(img => img.category)))];
   
-  const filteredImages = selectedCategory === 'all' 
-    ? images 
+  const filteredImages = selectedCategory === 'all'
+    ? images
     : images.filter(img => img.category === selectedCategory);
+
+  const INITIAL_COUNT = 6;
+  const hasMore = filteredImages.length > INITIAL_COUNT;
+  const displayedImages = showAll ? filteredImages : filteredImages.slice(0, INITIAL_COUNT);
 
   return (
     <section id="gallery" className="section-padding bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
@@ -449,7 +454,7 @@ const Gallery = () => {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => { setSelectedCategory(category); setShowAll(false); }}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                 selectedCategory === category
                   ? 'bg-accent text-white'
@@ -462,25 +467,37 @@ const Gallery = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {filteredImages.map((image) => (
-            <div
-              key={image._id}
-              className="group relative overflow-hidden rounded-lg cursor-pointer"
-              onClick={() => setSelectedImage(image.image)}
-            >
-              <img
-                src={image.image}
-                alt={image.title}
-                className="w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-lg font-semibold mb-2">{image.title}</h3>
-                  <p className="text-sm capitalize">{image.category}</p>
-                </div>
+          {displayedImages.map((image, index) => {
+            const isSeeMore = !showAll && hasMore && index === INITIAL_COUNT - 1;
+            return (
+              <div
+                key={image._id}
+                className="group relative overflow-hidden rounded-lg cursor-pointer"
+                onClick={() => !isSeeMore && setSelectedImage(image.image)}
+              >
+                <img
+                  src={image.image}
+                  alt={image.title}
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                {isSeeMore ? (
+                  <div
+                    className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center cursor-pointer"
+                    onClick={(e) => { e.stopPropagation(); setShowAll(true); }}
+                  >
+                    <span className="text-white text-lg font-semibold tracking-wide">See More</span>
+                  </div>
+                ) : (
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="text-white text-center">
+                      <h3 className="text-lg font-semibold mb-2">{image.title}</h3>
+                      <p className="text-sm capitalize">{image.category}</p>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {selectedImage && (
