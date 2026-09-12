@@ -48,16 +48,6 @@ const Header = () => {
               Home
             </Link>
             <Link
-              to="/about"
-              className={`transition-colors font-medium ${
-                isActive("/about")
-                  ? "text-accent"
-                  : "text-blue-100 hover:text-accent"
-              }`}
-            >
-              About
-            </Link>
-            <Link
               to="/services"
               className={`transition-colors font-medium ${
                 isActive("/services")
@@ -97,7 +87,26 @@ const Header = () => {
             >
               Contact
             </Link>
-           
+            <Link
+              to="/careers"
+              className={`transition-colors font-medium ${
+                isActive("/careers")
+                  ? "text-accent"
+                  : "text-blue-100 hover:text-accent"
+              }`}
+            >
+              Careers
+            </Link>
+            <Link
+              to="/about"
+              className={`transition-colors font-medium ${
+                isActive("/about")
+                  ? "text-accent"
+                  : "text-blue-100 hover:text-accent"
+              }`}
+            >
+              About
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -129,7 +138,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-900 border-t border-blue-800">
-              {["/", "/about", "/services", "/gallery", "/clients", "/contact", "/careers"].map(
+              {["/", "/services", "/gallery", "/clients", "/contact", "/careers", "/about"].map(
                 (path, index) => (
                   <Link
                     key={index}
