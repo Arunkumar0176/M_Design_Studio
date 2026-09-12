@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -81,12 +82,9 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-300 hover:text-accent transition-colors"
-                >
-                  Contact Us
-                </button>
+                <Link to="/careers" className="text-gray-300 hover:text-accent transition-colors">
+                  Careers
+                </Link>
               </li>
             </ul>
           </div>

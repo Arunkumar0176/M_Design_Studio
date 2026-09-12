@@ -129,7 +129,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-900 border-t border-blue-800">
-              {["/", "/about", "/services", "/gallery", "/clients", "/contact"].map(
+              {["/", "/about", "/services", "/gallery", "/clients", "/contact", "/careers"].map(
                 (path, index) => (
                   <Link
                     key={index}

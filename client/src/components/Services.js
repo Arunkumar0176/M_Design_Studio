@@ -14,35 +14,35 @@ const Services = () => {
     {
       title: 'Event Planning',
       description: 'Complete event management from concept to execution, ensuring every detail is perfect.',
-      icon: '🎯',
+      icon: '',
       bgImage: eventPlanningBg,
       category: 'corporate'
     },
     {
       title: 'Exhibition Design',
       description: 'Creative and functional exhibition stands that capture attention and drive engagement.',
-      icon: '🎨',
+      icon: '',
       bgImage: exhibitionBg,
       category: 'exhibition'
     },
     {
       title: 'Corporate Events',
       description: 'Professional corporate event solutions including conferences, seminars, and product launches.',
-      icon: '🏢',
+      icon: '',
       bgImage: corporateBg,
       category: 'corporate'
     },
     {
       title: 'Trade Shows',
       description: 'Strategic trade show planning and execution to maximize your business impact.',
-      icon: '🤝',
+      icon: '',
       bgImage: tradeShowBg,
       category: 'tradeshow'
     },
     {
       title: 'Brand Activations',
       description: 'Innovative brand activation campaigns that create lasting connections with your audience.',
-      icon: '⚡',
+      icon: '',
       bgImage: brandActivationBg,
       category: 'branding'
     }
