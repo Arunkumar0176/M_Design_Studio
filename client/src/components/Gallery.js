@@ -49,6 +49,8 @@ import exhibition24 from '../assets/images/gallery/Exibition-24.jpeg';
 import exhibition25 from '../assets/images/gallery/Exibition-25.jpeg';
 import exhibition26 from '../assets/images/gallery/Exibition-26.jpeg';
 import exhibition27 from '../assets/images/gallery/Exibition-27.jpeg';
+import exhibition28 from '../assets/images/gallery/Exibition-28.jpeg';
+import exhibition29 from '../assets/images/gallery/Exibition-29.jpeg';
 
 import tradeshow1 from '../assets/images/gallery/Exhibition-13.jpeg';
 import tradeshow2 from '../assets/images/gallery/Exibition-12.jpeg';
@@ -264,6 +266,18 @@ const Gallery = () => {
       _id: '72',
       title: 'Exhibition Space',
       image: exhibition27,
+      category: 'exhibition'
+    },
+    {
+      _id: '73',
+      title: 'Exhibition Space',
+      image: exhibition28,
+      category: 'exhibition'
+    },
+    {
+      _id: '74',
+      title: 'Exhibition Space',
+      image: exhibition29,
       category: 'exhibition'
     },
     
